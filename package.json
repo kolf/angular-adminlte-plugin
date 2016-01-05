@@ -1,0 +1,47 @@
+{
+  "name": "angular-adminlte-plugin",
+  "version": "0.1.0",
+  "description": "angular adminlte plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "build": "rm -rf dest && webpack",
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kakanjau/angular-adminlte-plugin.git"
+  },
+  "keywords": [
+    "angular",
+    "adminlte"
+  ],
+  "author": "qiaoliang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kakanjau/angular-adminlte-plugin/issues"
+  },
+  "homepage": "https://github.com/kakanjau/angular-adminlte-plugin#readme",
+  "devDependencies": {
+    "babel": "^6.3.26",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.0",
+    "file-loader": "^0.8.5",
+    "html-webpack-plugin": "^1.7.0",
+    "less": "^2.5.3",
+    "less-loader": "^2.2.2",
+    "style-loader": "^0.13.0",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0",
+    "webpack-sources": "^0.1.0"
+  },
+  "dependencies": {
+    "admin-lte": "^2.3.2",
+    "angular": "^1.4.8",
+    "font-awesome": "^4.5.0",
+    "jQuery": "^1.7.4",
+    "jquery": "^2.1.4",
+    "ui-router": "^0.2.15"
+  }
+}
