@@ -25,8 +25,16 @@ module.exports = {
   module: {
     loaders: [
       {test: /\.css$/, loader: 'style-loader!css-loader'},
-      {test: /\.(eot|woff|ttf|svg|woff2)$/, loader: "file-loader" },
-      {test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192'}
+      {test: /\.(eot(\?.*)?|woff(\?.*)?|ttf(\?.*)?|svg(\?.*)?|woff2(\?.*)?)$/, loader: "file-loader" },
+      {test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192'},
+      {
+        test: /\.jsx?$/,
+        exclude: /(node_modules)/,
+        loader: 'babel',
+        query: {
+          presets: ['es2015']
+        }
+      }
       // {test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader')},
     ]
   },

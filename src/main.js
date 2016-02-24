@@ -1,10 +1,10 @@
-require("../node_modules/admin-lte/bootstrap/css/bootstrap.css");
-require("../node_modules/admin-lte/dist/css/AdminLTE.css");
-require("../node_modules/admin-lte/dist/css/skins/_all-skins.css");
-require("../node_modules/font-awesome/css/font-awesome.css");
-require("./style.css");
+import "../node_modules/admin-lte/bootstrap/css/bootstrap.css";
+import "../node_modules/admin-lte/dist/css/AdminLTE.css";
+import "../node_modules/admin-lte/dist/css/skins/_all-skins.css";
+import "../node_modules/font-awesome/css/font-awesome.css";
+import "./style.css";
 
-require("../node_modules/ui-router/release/angular-ui-router");
+import "../node_modules/ui-router/release/angular-ui-router";
 
 var app = angular.module('app', ['ui.router']);
 
@@ -25,4 +25,4 @@ app.run(['$state', '$rootScope',
   }
 ]);
 
-module.exports = app;
+export default app;
