@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "build": "rm -rf dest && webpack",
-    "start": "webpack-dev-server"
+    "build": "rm -rf dest && webpack --bail --progress --profile",
+    "start": "webpack-dev-server --history-api-fallback --inline --progress"
   },
   "repository": {
     "type": "git",
@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "admin-lte": "^2.3.2",
-    "angular": "^1.4.8",
+    "angular": "^1.5.0",
     "font-awesome": "^4.5.0",
     "jquery": "^2.1.4",
     "ui-router": "^0.2.15"

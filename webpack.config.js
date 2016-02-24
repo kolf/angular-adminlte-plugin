@@ -14,8 +14,7 @@ module.exports = {
       'angular/angular'
     ],
     app: [
-      'main',
-      'script/controllers/rootCtrl'
+      'main'
     ]
   },
   output: {

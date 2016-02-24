@@ -29,8 +29,10 @@
         |-- lib // npm上不提供的第三方组件、框架  
         |-- business // 业务代码  
             |-- script
-            |-- service
-            |-- view
+                |-- controller
+                |-- filter
+                |-- service
+            |-- template
             |-- style
         |-- index.html // 入口页面  
         |-- main.js // angular入口js  

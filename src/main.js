@@ -2,26 +2,24 @@ import "../node_modules/admin-lte/bootstrap/css/bootstrap.css";
 import "../node_modules/admin-lte/dist/css/AdminLTE.css";
 import "../node_modules/admin-lte/dist/css/skins/_all-skins.css";
 import "../node_modules/font-awesome/css/font-awesome.css";
-import "./style.css";
+import "./business/style/basic-style.css";
 
 import "../node_modules/ui-router/release/angular-ui-router";
 
-var app = angular.module('app', ['ui.router']);
+import angular from "angular";
 
-app.config(['$stateProvider', '$urlRouterProvider', 
-  function($stateProvider, $urlRouterProvider){
-    $urlRouterProvider.otherwise('/portal');
-    $stateProvider.state('Portal', {
-      url: '/portal',
-      template: '<div>portal</div>'
-      // controller: require('./script/controllers/basicCtrl')
-    });
-  }
-]);
+import appConfiguration from './config/config';
+import appRouter from './config/router';
+import appControler from './business/script/controller/ctrl';
 
-app.run(['$state', '$rootScope', 
-  function($state, $rootScope){
-    // require('script/controllers/rootCtrl');
+let app = angular.module('app', ['ui.router']);
+
+appConfiguration(app);
+appRouter(app);
+appControler(app);
+
+app.run(['$state', '$rootScope',
+  function ($state, $rootScope) {
   }
 ]);
 
