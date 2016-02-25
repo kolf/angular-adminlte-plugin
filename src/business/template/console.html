@@ -52,7 +52,7 @@
         <li class="treeview" ng-repeat="menu in menus track by $index" ng-click="selectMenu($event, menu)" ng-mouseenter="menu.hover = true;"
         ng-mouseleave="menu.hover = false;" ng-class="{'active': menu === formData.selectedMenu1 || menu.hover}">
           <a href="#">
-            <i class="{{menu.clazz}}"></i>
+            <i class="{{menu.clazz || 'fa fa-circle-o'}}"></i>
             <span>{{menu.name}}</span>
             <i ng-show="menu.children != null" class="fa fa-angle-left pull-right"></i>
           </a>
@@ -60,13 +60,13 @@
             <li ng-repeat="menu2 in menu.children track by $index" ng-click="selectMenu($event, menu2)" ng-class="{'active': menu2 === formData.selectedMenu2}"
             class="treeview">
               <a href="#">
-                <i class="{{menu2.clazz}}"></i> {{menu2.name}}
+                <i class="{{menu2.clazz || 'fa fa-circle-o'}}"></i> {{menu2.name}}
                 <i ng-show="menu2.children != null" class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
                 <li ng-repeat="menu3 in menu2.children track by $index | orderBy: 'o'" ng-class="{'active':  menu3 === formData.selectedMenu3}"
                 ng-click="selectMenu($event, menu3)">
                   <a href="#">
-                    <i class="{{menu3.clazz}}"></i> {{menu3.name}}
+                    <i class="{{menu3.clazz || 'fa fa-circle-o'}}"></i> {{menu3.name}}
                   </a>
                 </li>
               </ul>

@@ -7,15 +7,58 @@ let ConsoleCtrl = function ($scope, $state) {
   vm.menus = [{
     name: '概览',
     state: 'Console.Portal',
-    clazz: 'fa fa-dashboard',
-    o: 0
+    clazz: 'fa fa-dashboard'
   }, {
-    name: '组件',
-    clazz: 'fa fa-circle',
-    o: 0
+    name: 'common组件',
+    clazz: 'fa fa-laptop',
+    children: [{
+      name: '树',
+      state: 'Console.Tree'
+    }, {
+      name: '模态框',
+      state: 'Console.Modal'
+    }, {
+      name: '图片预览',
+      state: 'Console.Preview'
+    }, {
+      name: 'echarts图表',
+      state: 'Console.Echarts'
+    }, {
+      name: '日期范围选择',
+      state: 'Console.DateRangePicker'
+    }, {
+      name: 'select2',
+      state: 'Console.Select2'
+    }, {
+      name: '其他小组件',
+      state: 'Console.Dropdown'
+    }]
+  }, {
+    name: 'table',
+    clazz: 'fa fa-table',
+    children: [{
+      name: '普通table',
+      state: 'Console.Table'
+    }, {
+      name: '可编辑table',
+      state: 'Console.EditTable'
+    }]
+  }, {
+    name: 'form',
+    clazz: 'fa fa-edit',
+    children: [{
+      name: '普通form',
+      state: 'Console.Form'
+    }, {
+      name: '表单验证form',
+      state: 'Console.ValidateForm'
+    }]
+  }, {
+    name: 'tab',
+    state: 'Console.Tab',
+    clazz: 'fa fa-th'
   }];
   init();
-  console.info(vm.menus);
 
   function reCfgMenus(menus, parent, level) {
     menus.forEach(function (v) {

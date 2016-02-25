@@ -1,6 +1,9 @@
+import content from '../../../../README.md';
+
 let PortalCtrl = function($scope) {
   let vm = $scope;
-  vm.name = 123123;
+  vm.mdContent = content;
+  console.info(content);
 }
 
 PortalCtrl.$inject = ['$scope'];
