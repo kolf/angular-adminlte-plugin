@@ -1,13 +1,16 @@
 export default app => {
   app.config(['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider) => {
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/portal');
     $stateProvider
     .state('Console', {
-      // abstract: true,
+      abstract: true,
       templateUrl: 'business/template/console.html',
-      // template: '<div>123</div>',
       controller: 'ConsoleCtrl',
-      url: '/'
+    })
+    .state('Console.Portal', {
+      url: '/portal',
+      templateUrl: 'business/template/portal.html',
+      controller: 'PortalCtrl'
     })
     ;
   }]);

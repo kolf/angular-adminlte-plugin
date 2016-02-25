@@ -8,11 +8,13 @@ import "../node_modules/ui-router/release/angular-ui-router";
 
 import angular from "angular";
 
+import snCommon from "./common/snCommon";
+
 import appConfiguration from './config/config';
 import appRouter from './config/router';
-import appControler from './business/script/controller/ctrl';
+import appControler from './business/script/controller/controller';
 
-let app = angular.module('app', ['ui.router']);
+let app = angular.module('app', ['ui.router', snCommon.name]);
 
 appConfiguration(app);
 appRouter(app);

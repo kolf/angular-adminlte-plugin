@@ -1,11 +1,11 @@
 import ConsoleCtrl from './consoleCtrl';
 import RootCtrl from './rootCtrl';
+import PortalCtrl from './portalCtrl';
 
 function injectCtrl(app, ...ctrlList){
-  ctrlList.forEach(item => {app.controller(item.name, item); 
-  console.log(item.name)});
+  ctrlList.forEach(ctrl => ctrl(app));
 }
 
 export default app => {
-  injectCtrl(app, ConsoleCtrl, RootCtrl);
+  injectCtrl(app, ConsoleCtrl, RootCtrl, PortalCtrl);
 }
