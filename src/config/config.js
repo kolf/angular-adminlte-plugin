@@ -52,6 +52,39 @@ export default app => {
     }];
   });
 
+  app.constant('Utils', {})
+    .run(['$rootScope', '$state', '$location', 'Utils',
+      function ($rootScope, $state, $location, Utils) {
+        'use strict';
+
+        $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+          
+        });
+
+        $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+          
+        });
+        
+        $rootScope.$on('$locationChangeSuccess', function(evt, newUrl, oldUrl) {
+          var url = $location.url();
+          var newPath;
+          if (url.indexOf("#loginSuccess:") >= 0 && (url.indexOf("#loginSuccess:") == url.length - 14)) {
+            // LoginService.loginSuccess();
+            newPath = url.slice(0, url.indexOf("#loginSuccess:"));
+            $location.url(newPath);
+          } else if (url.indexOf("#close:") >= 0 && (url.indexOf("#close:") == url.length - 7)) {
+            // LoginService.closeContainer();
+            newPath = url.slice(0, url.indexOf("#close:"));
+            $location.url(newPath);
+          } else if (url.indexOf("#resize:") >= 0) {
+            // LoginService.resizeContainer(url.slice(url.indexOf("#resize:") + 8));
+            newPath = url.slice(0, url.indexOf("#resize:"));
+            $location.url(newPath);
+          }
+        });
+      }
+    ]);
+
   app.factory('noCacheInterceptor', function () {
     'use strict';
 

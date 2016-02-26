@@ -417,4 +417,15 @@ export default app => {
       };
     }
   ]);
+
+  app.directive('contentWrapperMinHeight', [function () {
+    return {
+      restrict: 'A',
+      link: function (scope, element) {
+        if ($.AdminLTE) {
+          $.AdminLTE.layout.activate();
+        }
+      }
+    };
+  }]);
 }

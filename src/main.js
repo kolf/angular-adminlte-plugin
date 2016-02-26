@@ -4,8 +4,6 @@ import "../node_modules/admin-lte/dist/css/skins/_all-skins.css";
 import "../node_modules/font-awesome/css/font-awesome.css";
 import "./business/style/basic-style.css";
 
-import "../node_modules/ui-router/release/angular-ui-router";
-
 import angular from "angular";
 
 import snCommon from "./common/snCommon";

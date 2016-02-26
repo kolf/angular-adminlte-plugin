@@ -9,7 +9,8 @@ module.exports = {
     vendor: [
       'jquery/dist/jquery',
       'admin-lte/bootstrap/js/bootstrap',
-      'admin-lte/dist/js/app'
+      'admin-lte/dist/js/app',
+      // 'lib/adminlte/adminlte'
     ],
     ng: [
       'angular', 'ui-router'

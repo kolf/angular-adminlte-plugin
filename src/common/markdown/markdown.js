@@ -10,10 +10,14 @@ export default app => {
       },
       link: function(scope, element, attrs) {
         marked.setOptions(scope.option);
-        scope.$watch('markdown', () => {
-          // console.info(marked);
-          element.html(marked(scope.content.toString()));
-        });
+        if(scope.content){
+          scope.$watch('content', () => {
+            // console.info(marked);
+            element.html(marked((scope.content||'').toString()));
+          });
+        }else{
+          element.html(marked(element.text()));
+        }
       }
     };
   }])

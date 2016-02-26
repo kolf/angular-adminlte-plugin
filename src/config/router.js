@@ -12,6 +12,15 @@ export default app => {
       templateUrl: 'business/template/portal.html',
       controller: 'PortalCtrl'
     })
+    .state('Console.Component', {
+      abstract: true,
+      template: '<div ui-view></div>'
+    })
+    .state('Console.Component.Tree', {
+      url: '/component/tree',
+      templateUrl: 'business/template/component/tree.html',
+      controller: 'TreeCtrl'
+    })
     ;
   }]);
 }

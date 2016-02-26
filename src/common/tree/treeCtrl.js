@@ -1,103 +1,101 @@
-export default class Tree {
-  constructor() {
-    this.isTreeNode = true;
-    this.getRoot = function () {
-      var pointer = this;
-      var parent = pointer.$parent;
-      while (parent.isTreeNode) {
-        pointer = parent;
-        parent = parent.$parent;
-      }
+export default function Tree($scope) {
+  $scope.isTreeNode = true;
+  $scope.getRoot = function () {
+    var pointer = this;
+    var parent = pointer.$parent;
+    while (parent.isTreeNode) {
+      pointer = parent;
+      parent = parent.$parent;
+    }
 
-      return pointer;
-    };
+    return pointer;
+  };
 
-    this.state = function (node) {
-      if (node.children && node.children.length > 0) {
-        if (node.$collapsed) {
-          return "fa fa-caret-right";
-        } else {
-          return "fa fa-caret-down";
-        }
+  $scope.state = function (node) {
+    if (node.children && node.children.length > 0) {
+      if (node.$collapsed) {
+        return "fa fa-caret-right";
       } else {
-        return "fa";
+        return "fa fa-caret-down";
       }
-    };
+    } else {
+      return "fa";
+    }
+  };
 
-    this.type = function (node) {
-      if (node.children && node.children.length > 0) {
-        if (node.$collapsed) {
-          return "fa fa-folder";
-        } else {
-          return "fa fa-folder-open";
-        }
+  $scope.type = function (node) {
+    if (node.children && node.children.length > 0) {
+      if (node.$collapsed) {
+        return "fa fa-folder";
       } else {
-        return "fa fa-leaf";
+        return "fa fa-folder-open";
       }
-    };
+    } else {
+      return "fa fa-leaf";
+    }
+  };
 
-    this.select = function (node) {
-      if (node != this.selectedNode) {
-        var root = this.getRoot();
-        if (root.selectedNode) {
-          root.selectedNode.$selected = false;
-        }
-        node.$selected = true;
-
-        root.selectedNode = node;
-
-        var evt = {
-          newNode: node,
-          oldNode: this.selectedNode,
-          treeId: root.treeId
-        };
-
-        root.$emit("sn.controls.tree:selectedNodeChanged", evt);
+  $scope.select = function (node) {
+    if (node != $scope.selectedNode) {
+      var root = $scope.getRoot();
+      if (root.selectedNode) {
+        root.selectedNode.$selected = false;
       }
-    };
+      node.$selected = true;
 
-    this.itemClick = function (node) {
-      this.select(node);
-    };
-
-    this.itemCheck = function (node) {
-      this.$emit("sn.controls.tree:itemChecked", node, 'itemCheck');
-    };
-
-    this.$on("sn.controls.tree:itemChecked", function (e, item) {
-      item && checkChildren(item);
-
-      if (this.treeData) {
-        this.treeData.forEach(function (node) {
-          if (node.children) {
-            var checkedLength = node.children.filter(function (it) {
-              return it.checked;
-            }).length;
-
-            if (checkedLength == node.children.length) {
-              node.checked = true;
-            } else if (checkedLength == 0) {
-              node.checked = false;
-            } else {
-              node.checked = null;
-            }
-          }
-        });
-      }
-    });
-
-    this.iconClick = function (node) {
-      node.$collapsed = !node.$collapsed;
+      root.selectedNode = node;
 
       var evt = {
-        currentNode: node
+        newNode: node,
+        oldNode: $scope.selectedNode,
+        treeId: root.treeId
       };
-      var root = this.getRoot();
-      root.$emit("sn.controls.tree:nodeIconClicked", evt);
-    };
-  }
 
-  checkChildren(node) {
+      root.$emit("sn.controls.tree:selectedNodeChanged", evt);
+    }
+  };
+
+  $scope.itemClick = function (node) {
+    $scope.select(node);
+  };
+
+  $scope.itemCheck = function (node) {
+    $scope.$emit("sn.controls.tree:itemChecked", node, 'itemCheck');
+  };
+
+  $scope.$on("sn.controls.tree:itemChecked", function (e, item) {
+    item && checkChildren(item);
+
+    if ($scope.treeData) {
+      $scope.treeData.forEach(function (node) {
+        if (node.children) {
+          var checkedLength = node.children.filter(function (it) {
+            return it.checked;
+          }).length;
+
+          if (checkedLength == node.children.length) {
+            node.checked = true;
+          } else if (checkedLength == 0) {
+            node.checked = false;
+          } else {
+            node.checked = null;
+          }
+        }
+      });
+    }
+  });
+
+  $scope.iconClick = function (node) {
+    node.$collapsed = !node.$collapsed;
+
+    var evt = {
+      currentNode: node
+    };
+    var root = $scope.getRoot();
+    root.$emit("sn.controls.tree:nodeIconClicked", evt);
+  };
+
+  function checkChildren(node) {
     if (node.children) {
       node.children.forEach(function (it) {
         it.checked = node.checked;

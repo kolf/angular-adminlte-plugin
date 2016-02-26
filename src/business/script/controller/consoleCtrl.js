@@ -9,56 +9,89 @@ let ConsoleCtrl = function ($scope, $state) {
     state: 'Console.Portal',
     clazz: 'fa fa-dashboard'
   }, {
-    name: 'common组件',
-    clazz: 'fa fa-laptop',
-    children: [{
-      name: '树',
-      state: 'Console.Tree'
+      name: 'common组件',
+      clazz: 'fa fa-laptop',
+      children: [{
+        name: '树',
+        state: 'Console.Component.Tree'
+      }, {
+          name: '模态框',
+          state: 'Console.Modal'
+        }, {
+          name: '图片预览',
+          state: 'Console.Preview'
+        }, {
+          name: 'echarts图表',
+          state: 'Console.Echarts'
+        }, {
+          name: '日期范围选择',
+          state: 'Console.DateRangePicker'
+        }, {
+          name: 'select2',
+          state: 'Console.Select2'
+        }, {
+          name: '其他小组件',
+          state: 'Console.Dropdown'
+        }]
     }, {
-      name: '模态框',
-      state: 'Console.Modal'
+      name: 'table',
+      clazz: 'fa fa-table',
+      children: [{
+        name: '普通table',
+        state: 'Console.Table'
+      }, {
+          name: '可编辑table',
+          state: 'Console.EditTable'
+        }]
     }, {
-      name: '图片预览',
-      state: 'Console.Preview'
+      name: 'form',
+      clazz: 'fa fa-edit',
+      children: [{
+        name: '普通form',
+        state: 'Console.Form'
+      }, {
+          name: '表单验证form',
+          state: 'Console.ValidateForm'
+        }]
     }, {
-      name: 'echarts图表',
-      state: 'Console.Echarts'
-    }, {
-      name: '日期范围选择',
-      state: 'Console.DateRangePicker'
-    }, {
-      name: 'select2',
-      state: 'Console.Select2'
-    }, {
-      name: '其他小组件',
-      state: 'Console.Dropdown'
-    }]
-  }, {
-    name: 'table',
-    clazz: 'fa fa-table',
-    children: [{
-      name: '普通table',
-      state: 'Console.Table'
-    }, {
-      name: '可编辑table',
-      state: 'Console.EditTable'
-    }]
-  }, {
-    name: 'form',
-    clazz: 'fa fa-edit',
-    children: [{
-      name: '普通form',
-      state: 'Console.Form'
-    }, {
-      name: '表单验证form',
-      state: 'Console.ValidateForm'
-    }]
-  }, {
-    name: 'tab',
-    state: 'Console.Tab',
-    clazz: 'fa fa-th'
-  }];
+      name: 'tab',
+      state: 'Console.Tab',
+      clazz: 'fa fa-th'
+    }];
   init();
+  
+  ////////////////$scope functions/////////////////
+  vm.selectMenu = function (e, menuItem) {
+    e.preventDefault();
+    e.stopPropagation();
+    var stateName = menuItem.state,
+      stateParam = menuItem.param;
+    if (stateName) {
+      //当使用reload:true时会重新生成一个scope,init方法都会再次执行
+      $state.go(menuItem.state, stateParam, { reload: true });
+    } else {
+      if (formData['selectedMenu' + menuItem.level] === menuItem) {
+        formData['selectedMenu' + menuItem.level] = null;
+      } else {
+        formData['selectedMenu' + menuItem.level] = menuItem;
+      }
+
+      while (menuItem.parent) {
+        menuItem = menuItem.parent;
+        formData['selectedMenu' + menuItem.level] = menuItem;
+      }
+    }
+  };
+
+  vm.doLogout = function () {
+  };
+
+  ///////////////////watches//////////////////////////////
+  ///////////////////Events///////////////////
+  $scope.$on('router:state:change', function (event, toState) {
+    event.preventDefault();
+    locateMenu(toState);
+  });
 
   function reCfgMenus(menus, parent, level) {
     menus.forEach(function (v) {
