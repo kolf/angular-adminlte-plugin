@@ -2,6 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -11,14 +12,14 @@ module.exports = {
       'admin-lte/dist/js/app'
     ],
     ng: [
-      'angular/angular'
+      'angular', 'ui-router'
     ],
     app: [
       'main'
     ]
   },
   output: {
-    filename: '[name].js',
+    filename: '[name].bundle.js',
     path: './dest'
   },
   module: {
@@ -33,12 +34,20 @@ module.exports = {
     ]
   },
   plugins: [
+    new CopyWebpackPlugin([
+      {from: './src', to:'./'}
+    ], {
+      ignore: ['*.js', 'index.html']
+    }),
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.ProvidePlugin({$: "jquery", jQuery: "jquery", "window.jQuery": "jquery"}),
     new ExtractTextPlugin('[name].css', {allChunks: true}),
-    new HtmlWebpackPlugin({
-      template: path.resolve('src', 'index.html'),
-      inject: 'body'
-    })
+    new HtmlWebpackPlugin({template: path.resolve('src', 'index.html'), inject: 'body'}),
+    // new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({name: 'vendor', minChunks: Infinity}),
+    
   ],
   resolve: {
     extensions: ['', '.js', '.json', '.coffee'],
