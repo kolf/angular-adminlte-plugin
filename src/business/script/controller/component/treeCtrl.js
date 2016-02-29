@@ -4,7 +4,12 @@ let TreeCtrl = function($scope) {
     {name: 'node1'},
     {name: 'node2'},
     {name: 'node3', children: [{name: 'node31'}, {name: 'node32'}]}
-  ]
+  ];
+  vm.checkboxTreeData = [
+    {name: 'node1', checked: true},
+    {name: 'node2'},
+    {name: 'node3', checked: true, children: [{name: 'node31'}, {name: 'node32', checked: true}]}
+  ];
 }
 
 TreeCtrl.$inject = ['$scope'];

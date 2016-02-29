@@ -10,16 +10,19 @@ export default app => {
         treeData: "="
       },
       controller: controller,
+      template: (tElement, tAttrs) => {
+        return tAttrs["treeTpl"] === 'checkboxTreeTpl' ? checkboxTreeTpl : treeTpl;
+      },
       link: function (scope, element, attr) {
         scope.treeId = attr["treeId"];
 
-        if (!scope.$parent.$isTreeNode) {
-          scope.treeTpl = attr["treeTpl"] === 'checkboxTreeTpl' ? checkboxTreeTpl : treeTpl;
-        }
+        // if (!scope.$parent.$isTreeNode) {
+        //   scope.treeTpl = 
+        // }
 
-        element.html(scope.getRoot().treeTpl);
+        // element.html(scope.getRoot().treeTpl);
 
-        $compile(element.contents())(scope);
+        // $compile(element.contents())(scope);
       }
     };
   });

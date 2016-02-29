@@ -1,4 +1,4 @@
-<script id="checkboxTreeTpl" type="text/html">
+<!--<script id="checkboxTreeTpl" type="text/html">-->
   <ul class="sn-tree" class="dropdown-menu">
     <li ng-repeat="node in treeData">
       <i class="node-checkbox" ng-class="state(node)" ng-click="iconClick(node)"></i>
@@ -7,7 +7,7 @@
       <span ng-click="iconClick(node)" sn-tooltip="{{node.description}}">
         {{node.name}}
       </span>
-      <sn-tree tree-data="node.children" tree-parent="node" ng-hide="node.children && node.collapsed"></sn-tree>
+      <sn-tree tree-data="node.children" tree-parent="node" ng-hide="node.children && node.$collapsed"></sn-tree>
     </li>
   </ul>
-</script>
+<!--</script>-->

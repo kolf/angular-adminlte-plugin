@@ -99,7 +99,7 @@ export default function Tree($scope) {
     if (node.children) {
       node.children.forEach(function (it) {
         it.checked = node.checked;
-        Tree.checkChildren(it);
+        checkChildren(it);
       });
     }
   }
