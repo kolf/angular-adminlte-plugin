@@ -26,6 +26,11 @@ export default app => {
       templateUrl: 'business/template/component/modal/modal.html',
       controller: 'ModalCtrl'
     })
+    .state('Console.Component.Preview', {
+      url: '/component/preview',
+      templateUrl: 'business/template/component/preview.html',
+      controller: 'PreviewCtrl'
+    })
     ;
   }]);
 }

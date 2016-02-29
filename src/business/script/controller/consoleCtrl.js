@@ -20,14 +20,14 @@ let ConsoleCtrl = function ($scope, $state) {
           name: '模态框',
           state: 'Console.Component.Modal'
         }, {
-          name: '图片预览',
-          state: 'Console.Preview'
-        }, {
           name: 'echarts图表',
           state: 'Console.Echarts'
         }, {
           name: '日期范围选择',
           state: 'Console.DateRangePicker'
+        }, {
+          name: 'Mask',
+          state: 'Console.Component.Mask'
         }, {
           name: 'select2',
           state: 'Console.Select2'
