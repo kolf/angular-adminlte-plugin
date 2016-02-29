@@ -13,7 +13,7 @@ module.exports = {
       // 'lib/adminlte/adminlte'
     ],
     ng: [
-      'angular', 'ui-router'
+      'angular', 'ui-router', 'angular-sanitize'
     ],
     app: [
       'main'

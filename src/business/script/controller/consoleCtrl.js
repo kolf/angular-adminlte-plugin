@@ -4,19 +4,21 @@ let ConsoleCtrl = function ($scope, $state) {
     stateAndMenus: {}
   };
   vm.formData = {};
-  vm.menus = [{
-    name: '概览',
-    state: 'Console.Portal',
-    clazz: 'fa fa-dashboard'
-  }, {
+  vm.menus = [
+    {
+      name: '概览',
+      state: 'Console.Portal',
+      clazz: 'fa fa-dashboard'
+    }, {
       name: 'common组件',
       clazz: 'fa fa-laptop',
-      children: [{
-        name: '树',
-        state: 'Console.Component.Tree'
-      }, {
+      children: [
+        {
+          name: '树',
+          state: 'Console.Component.Tree'
+        }, {
           name: '模态框',
-          state: 'Console.Modal'
+          state: 'Console.Component.Modal'
         }, {
           name: '图片预览',
           state: 'Console.Preview'
@@ -36,20 +38,22 @@ let ConsoleCtrl = function ($scope, $state) {
     }, {
       name: 'table',
       clazz: 'fa fa-table',
-      children: [{
-        name: '普通table',
-        state: 'Console.Table'
-      }, {
+      children: [
+        {
+          name: '普通table',
+          state: 'Console.Table'
+        }, {
           name: '可编辑table',
           state: 'Console.EditTable'
         }]
     }, {
       name: 'form',
       clazz: 'fa fa-edit',
-      children: [{
-        name: '普通form',
-        state: 'Console.Form'
-      }, {
+      children: [
+        {
+          name: '普通form',
+          state: 'Console.Form'
+        }, {
           name: '表单验证form',
           state: 'Console.ValidateForm'
         }]

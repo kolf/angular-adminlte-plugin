@@ -21,6 +21,11 @@ export default app => {
       templateUrl: 'business/template/component/tree.html',
       controller: 'TreeCtrl'
     })
+    .state('Console.Component.Modal', {
+      url: '/component/modal',
+      templateUrl: 'business/template/component/modal/modal.html',
+      controller: 'ModalCtrl'
+    })
     ;
   }]);
 }

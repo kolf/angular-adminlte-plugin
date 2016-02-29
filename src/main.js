@@ -12,7 +12,7 @@ import appConfiguration from './config/config';
 import appRouter from './config/router';
 import appControler from './business/script/controller/controller';
 
-let app = angular.module('app', ['ui.router', snCommon.name]);
+let app = angular.module('app', ['ui.router', 'ngSanitize', snCommon.name]);
 
 appConfiguration(app);
 appRouter(app);
