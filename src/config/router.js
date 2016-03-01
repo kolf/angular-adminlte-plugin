@@ -31,6 +31,11 @@ export default app => {
       templateUrl: 'business/template/component/preview.html',
       controller: 'PreviewCtrl'
     })
+    .state('Console.Component.Echarts', {
+      url: '/component/echarts',
+      templateUrl: 'business/template/component/echarts.html',
+      controller: 'EchartsCtrl'
+    })
     ;
   }]);
 }

@@ -9,8 +9,7 @@ module.exports = {
     vendor: [
       'jquery/dist/jquery',
       'admin-lte/bootstrap/js/bootstrap',
-      'admin-lte/dist/js/app',
-      // 'lib/adminlte/adminlte'
+      'admin-lte/dist/js/app'
     ],
     ng: [
       'angular', 'ui-router', 'angular-sanitize'
@@ -42,6 +41,7 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.ProvidePlugin({$: "jquery", jQuery: "jquery", "window.jQuery": "jquery"}),
+    new webpack.ProvidePlugin({echarts: "echarts", "window.echarts": "echarts"}),
     new ExtractTextPlugin('[name].css', {allChunks: true}),
     new HtmlWebpackPlugin({template: path.resolve('src', 'index.html'), inject: 'body'}),
     // new webpack.optimize.UglifyJsPlugin(),

@@ -5,6 +5,7 @@ import markdown from './markdown/markdown';
 import dropdown from './dropdown/dropdown';
 import modal from './modal/modal';
 import preview from './preview/preview';
+import echarts from './echarts/echarts';
 
 let app = angular.module("sn.common", []);
 
@@ -14,6 +15,6 @@ function injectService(app, ...serviceList) {
   });
 }
 
-injectService(app, core, tree, markdown, dropdown, modal, preview);
+injectService(app, core, tree, markdown, dropdown, modal, preview, echarts);
 
 export default app;

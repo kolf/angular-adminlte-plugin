@@ -21,7 +21,7 @@ let ConsoleCtrl = function ($scope, $state) {
           state: 'Console.Component.Modal'
         }, {
           name: 'echarts图表',
-          state: 'Console.Echarts'
+          state: 'Console.Component.Echarts'
         }, {
           name: '日期范围选择',
           state: 'Console.DateRangePicker'
