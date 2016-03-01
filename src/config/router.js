@@ -41,6 +41,11 @@ export default app => {
       templateUrl: 'business/template/component/dateRangePicker.html',
       controller: 'DateRangePickerCtrl'
     })
+    .state('Console.Component.InputMask', {
+      url: '/component/input-mask',
+      templateUrl: 'business/template/component/inputMask.html',
+      controller: 'InputMaskCtrl'
+    })
     ;
   }]);
 }

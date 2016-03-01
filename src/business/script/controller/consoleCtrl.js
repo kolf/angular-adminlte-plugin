@@ -27,7 +27,7 @@ let ConsoleCtrl = function ($scope, $state) {
           state: 'Console.Component.DateRangePicker'
         }, {
           name: 'Mask',
-          state: 'Console.Component.Mask'
+          state: 'Console.Component.InputMask'
         }, {
           name: 'select2',
           state: 'Console.Select2'
