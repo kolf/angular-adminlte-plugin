@@ -36,6 +36,11 @@ export default app => {
       templateUrl: 'business/template/component/echarts.html',
       controller: 'EchartsCtrl'
     })
+    .state('Console.Component.DateRangePicker', {
+      url: '/component/date-range-picker',
+      templateUrl: 'business/template/component/dateRangePicker.html',
+      controller: 'DateRangePickerCtrl'
+    })
     ;
   }]);
 }

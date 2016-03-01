@@ -24,7 +24,7 @@ let ConsoleCtrl = function ($scope, $state) {
           state: 'Console.Component.Echarts'
         }, {
           name: '日期范围选择',
-          state: 'Console.DateRangePicker'
+          state: 'Console.Component.DateRangePicker'
         }, {
           name: 'Mask',
           state: 'Console.Component.Mask'

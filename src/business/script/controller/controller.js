@@ -5,11 +5,13 @@ import TreeCtrl from './component/treeCtrl';
 import ModalCtrl from './component/modal/modalCtrl';
 import DialogDemoCtrl from './component/modal/dialogDemoCtrl';
 import EchartsCtrl from './component/echartsCtrl';
+import DateRangePickerCtrl from './component/DateRangePickerCtrl';
 
-function injectCtrl(app, ...ctrlList){
+function injectCtrl(app, ...ctrlList) {
   ctrlList.forEach(ctrl => ctrl(app));
 }
 
 export default app => {
-  injectCtrl(app, ConsoleCtrl, RootCtrl, PortalCtrl, TreeCtrl, ModalCtrl, DialogDemoCtrl, EchartsCtrl);
+  injectCtrl(app, ConsoleCtrl, RootCtrl, PortalCtrl, TreeCtrl, ModalCtrl, DialogDemoCtrl,
+    EchartsCtrl, DateRangePickerCtrl);
 }
