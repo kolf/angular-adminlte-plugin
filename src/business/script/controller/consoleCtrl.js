@@ -30,7 +30,7 @@ let ConsoleCtrl = function ($scope, $state) {
           state: 'Console.Component.InputMask'
         }, {
           name: 'select2',
-          state: 'Console.Select2'
+          state: 'Console.Component.Select2'
         }, {
           name: '其他小组件',
           state: 'Console.Dropdown'

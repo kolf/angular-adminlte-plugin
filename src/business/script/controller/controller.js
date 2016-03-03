@@ -7,6 +7,7 @@ import DialogDemoCtrl from './component/modal/dialogDemoCtrl';
 import EchartsCtrl from './component/echartsCtrl';
 import DateRangePickerCtrl from './component/DateRangePickerCtrl';
 import InputMaskCtrl from './component/InputMaskCtrl';
+import Select2Ctrl from './component/Select2Ctrl';
 
 function injectCtrl(app, ...ctrlList) {
   ctrlList.forEach(ctrl => ctrl(app));
@@ -14,5 +15,5 @@ function injectCtrl(app, ...ctrlList) {
 
 export default app => {
   injectCtrl(app, ConsoleCtrl, RootCtrl, PortalCtrl, TreeCtrl, ModalCtrl, DialogDemoCtrl,
-    EchartsCtrl, DateRangePickerCtrl, InputMaskCtrl);
+    EchartsCtrl, DateRangePickerCtrl, InputMaskCtrl, Select2Ctrl);
 }

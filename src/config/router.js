@@ -46,6 +46,11 @@ export default app => {
       templateUrl: 'business/template/component/inputMask.html',
       controller: 'InputMaskCtrl'
     })
+    .state('Console.Component.Select2', {
+      url: '/component/select2',
+      templateUrl: 'business/template/component/select2.html',
+      controller: 'Select2Ctrl'
+    })
     ;
   }]);
 }
