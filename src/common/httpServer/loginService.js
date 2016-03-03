@@ -1,12 +1,12 @@
 export default app => {
-  app.service("LoginService", [function () {
+  app.service("LoginService", ['baseUrl', function (baseUrl) {
     /* passport相关的东西 */
     var loginCallbackStack = [];
     var intervalVar;
     var currentLocation;
 
     var config = {
-      base: "/dcs-web/",
+      base: baseUrl+'/',
       loginTheme: "dcs_pop"
     };
 

@@ -1,4 +1,5 @@
 export default app => {
+  app.constant('baseUrl', '/systemName');
   app.config(function ($httpProvider) {
     'use strict';
     //jshint -W089

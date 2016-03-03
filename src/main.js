@@ -14,6 +14,8 @@ import appControler from './business/script/controller/controller';
 
 let app = angular.module('app', ['ui.router', 'ngSanitize', snCommon.name]);
 
+Mock.mockjax(app);
+
 appConfiguration(app);
 appRouter(app);
 appControler(app);
