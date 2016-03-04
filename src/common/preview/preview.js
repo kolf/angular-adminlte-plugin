@@ -5,6 +5,7 @@ export default app => {
   app.service("PreviewService", ["$document", "$http", "$compile", "$rootScope",
     function ($document, $http, $compile, $rootScope) {
       var container;
+      var bodyOverflow;
       if (!document.getElementById("previewContainer")) {
         container = angular.element("<div class='sn-preview-container'>");
         $document.find("body").append(container);
@@ -23,11 +24,17 @@ export default app => {
       });
 
       function hide() {
+        var body = document.querySelector('body');
+        body.style.overflow = bodyOverflow;
+        
         container.html("");
         mask.remove();
       }
 
       function showImages(url) {
+        var body = document.querySelector('body');
+        bodyOverflow = body.style.overflow;
+        body.style.overflow = 'hidden';
         var pop = angular.element(previewTmpl);
         // $document.find("body").append(mask);
         // mask.css("z-index", 1200);

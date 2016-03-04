@@ -51,6 +51,16 @@ export default app => {
       templateUrl: 'business/template/component/select2.html',
       controller: 'Select2Ctrl'
     })
+    .state('Console.Component.OtherComponents', {
+      url: '/component/other-components',
+      templateUrl: 'business/template/component/otherComponents.html',
+      controller: 'OtherComponentsCtrl'
+    })
+    .state('Console.Component.OtherServices', {
+      url: '/component/other-services',
+      templateUrl: 'business/template/component/otherServices.html',
+      controller: 'OtherServicesCtrl'
+    })
     ;
   }]);
 }

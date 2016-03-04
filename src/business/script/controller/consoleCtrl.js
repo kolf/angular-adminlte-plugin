@@ -32,8 +32,11 @@ let ConsoleCtrl = function ($scope, $state) {
           name: 'select2',
           state: 'Console.Component.Select2'
         }, {
-          name: '其他小组件',
-          state: 'Console.Dropdown'
+          name: '其他组件',
+          state: 'Console.Component.OtherComponents'
+        }, {
+          name: '基础服务',
+          state: 'Console.Component.OtherServices'
         }]
     }, {
       name: 'table',

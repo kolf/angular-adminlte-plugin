@@ -13,6 +13,7 @@ import echarts from './echarts/echarts';
 import dateRangePicker from './dateRangePicker/dateRangePicker';
 import inputMask from './inputMask/inputMask';
 import select2 from './select2/select2';
+import tooltip from './tooltip/tooltip';
 
 let app = angular.module("sn.common", []);
 
@@ -23,6 +24,6 @@ function injectService(app, ...serviceList) {
 }
 
 injectService(app, core,  modal, http, tree, markdown, dropdown,preview, echarts, 
-  dateRangePicker, inputMask, select2);
+  dateRangePicker, inputMask, select2, tooltip);
 
 export default app;
