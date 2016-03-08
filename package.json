@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "build": "rm -rf dest && webpack --bail --progress --profile",
-    "start": "webpack-dev-server --history-api-fallback --inline --progress"
+    "build": "set NODE_ENV=production&& rm -rf dist && webpack --bail --progress --profile",
+    "dev": "set NODE_ENV=development&& webpack-dev-server --history-api-fallback --inline --progress"
   },
   "repository": {
     "type": "git",
@@ -35,6 +35,8 @@
     "html-webpack-plugin": "^1.7.0",
     "less": "^2.5.3",
     "less-loader": "^2.2.2",
+    "markdown-loader": "^0.1.7",
+    "ng-annotate-webpack-plugin": "^0.1.2",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.9",

@@ -3,7 +3,7 @@
 
   组件包括：左边菜单栏、树、日期(rangeDatePicker)、表格、表单(验证、行内编辑)、下拉列表(select2)、多tab标签、echart等
 
-  
+  项目网站：[http://kakanjau.github.io/angular-adminlte-plugin](http://kakanjau.github.io/angular-adminlte-plugin)
 ## 安装、运行
   
   - 安装`nodejs`  
@@ -13,19 +13,19 @@
   - 安装项目依赖  
   命令行找到工程根目录，执行`npm install`，通过npm安装需要的各种工具和第三方库
   - 运行本地开发环境  
-  在工程根目录，命令行执行`npm run start`
+  在工程根目录，命令行执行`npm run dev`
   - 打包发布工程  
   在工程根目录，命令行执行`npm run build`
 
 ## 项目结构
   
-````
-    -- node_modules 
+```
+    |- node_modules 
         // nodejs依赖组件，包括构建工具（babel、webpack）、
         // 开源框架（angular、bootstrap、adminlte、jquery等）  
-    -- src // 项目根目录  
-        |-- component // 本项目提供的组件  
-            |-- common-core.js // 基本核心service  
+    |- src // 项目根目录  
+        |-- common // 本项目提供的组件  
+            |-- core.js // 基本核心service  
         |-- lib // npm上不提供的第三方组件、框架  
         |-- business // 业务代码  
             |-- script
@@ -34,10 +34,14 @@
                 |-- service
             |-- template
             |-- style
-        |-- index.html // 入口页面  
+        |-- config // ng初始化配置以及路由设置
+            |-- config.js
+            |-- router.js
         |-- main.js // angular入口js  
-````
+        |-- index.html // 入口页面  
+```
 
 ## 本地mock
   
-  项目中加入了对ajax的mock支持。
+  项目中加入了对ajax的mock支持。  
+  正常项目中，只需将`main.js`中关于mock的注释放开即可。

@@ -1,4 +1,4 @@
-export default function Tree($scope) {
+let Tree = function ($scope) {
   $scope.isTreeNode = true;
   $scope.getRoot = function () {
     var pointer = this;
@@ -103,4 +103,8 @@ export default function Tree($scope) {
       });
     }
   }
-}
+};
+
+Tree.$inject = ['$scope'];
+
+export default Tree;

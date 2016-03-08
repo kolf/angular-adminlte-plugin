@@ -11,12 +11,8 @@ import Select2Ctrl from './component/Select2Ctrl';
 import OtherComponentsCtrl from './component/OtherComponentsCtrl';
 import OtherServicesCtrl from './component/OtherServicesCtrl';
 
-function injectCtrl(app, ...ctrlList) {
-  ctrlList.forEach(ctrl => ctrl(app));
-}
-
 export default app => {
-  injectCtrl(app, ConsoleCtrl, RootCtrl, PortalCtrl, TreeCtrl, ModalCtrl, DialogDemoCtrl,
+  INCLUDE_ALL_MODULES([ConsoleCtrl, RootCtrl, PortalCtrl, TreeCtrl, ModalCtrl, DialogDemoCtrl,
     EchartsCtrl, DateRangePickerCtrl, InputMaskCtrl, Select2Ctrl, OtherComponentsCtrl, 
-    OtherServicesCtrl);
+    OtherServicesCtrl], app);
 }

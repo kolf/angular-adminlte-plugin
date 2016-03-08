@@ -17,13 +17,7 @@ import tooltip from './tooltip/tooltip';
 
 let app = angular.module("sn.common", []);
 
-function injectService(app, ...serviceList) {
-  serviceList.forEach(service => {
-    service(app);
-  });
-}
-
-injectService(app, core,  modal, http, tree, markdown, dropdown,preview, echarts, 
-  dateRangePicker, inputMask, select2, tooltip);
+INCLUDE_ALL_MODULES([core,  modal, http, tree, markdown, dropdown,preview, echarts, 
+  dateRangePicker, inputMask, select2, tooltip], app);
 
 export default app;
