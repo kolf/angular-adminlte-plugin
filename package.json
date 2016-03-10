@@ -54,6 +54,6 @@
     "marked": "^0.3.5",
     "moment": "^2.11.2",
     "select2": "^4.0.1",
-    "ui-router": "^0.2.15"
+    "ui-router": "^1.0.0-alpha0"
   }
 }
